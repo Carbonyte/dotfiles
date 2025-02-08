@@ -21,4 +21,4 @@ end)
 
 vim.opt.undofile = true
 
-
+vim.opt.scrolloff = 10
