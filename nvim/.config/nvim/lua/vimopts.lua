@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -22,3 +22,4 @@ end)
 vim.opt.undofile = true
 
 vim.opt.scrolloff = 10
+vim.opt.signcolumn = 'yes'
