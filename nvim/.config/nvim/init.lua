@@ -15,60 +15,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
-vim.cmd("set tabstop=4")
-vim.cmd("set softtabstop=4")
-vim.cmd("set shiftwidth=4")
-vim.cmd("set smartindent")
+require("vimopts")
 
 -- Setup lazy.nvim
 require("lazy").setup({
-	spec = {
-		{"loctvl842/monokai-pro.nvim"},
-		{
-			"nvim-telescope/telescope.nvim",
-			tag = "0.1.8",
-			dependencies = {"nvim-lua/plenary.nvim"}
-		},
-		{
-			"nvim-treesitter/nvim-treesitter",
-			build = ":TSUpdate",
-			config = function() 
-				local configs = require("nvim-treesitter.configs")
-
-				configs.setup({
-				ensure_installed = {
-					"c", "lua", "vim", "vimdoc", "query", "javascript", "html",
-					"cpp", "rust"
-				},
-				sync_install = false,
-				highlight = { enable = true },
-				indent = { enable = true },  
-			})
-		end
-		}
-	},
-	-- Configure any other settings here. See the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
-	--install = { colorscheme = { "habamax" } },
-	-- automatically check for plugin updates
+	spec = {{ import = "plugins" }},
 	checker = { enabled = true },
 })
 
-require("monokai-pro").setup()
-require("telescope").setup()
-vim.cmd("colorscheme monokai-pro-classic")
-
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<C-p>", builtin.find_files, {desc = "Telescope find files"})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {desc = "Telescope live grep"})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc = 'Telescope buffers'})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = 'Telescope help tags'})
-
-
-
+require("keybinds")
