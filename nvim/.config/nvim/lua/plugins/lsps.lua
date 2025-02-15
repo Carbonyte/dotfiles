@@ -39,7 +39,7 @@ res[#res+1] = {
 		-- This function gets run when an LSP attaches to a particular buffer.
 		vim.api.nvim_create_autocmd('LspAttach', {
 			group = vim.api.nvim_create_augroup(
-				'kickstart-lsp-attach', 
+				'kickstart-lsp-attach',
 				{ clear = true }
 			),
 			callback = function(event)
