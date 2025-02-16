@@ -29,3 +29,5 @@ keymap("T-", "<CMD>tabm-<CR>", "Move tab to the left")
 keymap("T=", "<CMD>tabm+<CR>", "Move tab to the right")
 keymap("Tn", "<CMD>tabe<CR>", "Open new tab")
 keymap("Ts", "<CMD>tab split<CR>", "Clone window in new tab")
+
+keymap("<leader>t", ":Neotree reveal filesystem left<CR>", "Open filesystem tree to the left")

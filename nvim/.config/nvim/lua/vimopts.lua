@@ -23,6 +23,7 @@ vim.opt.undofile = true
 
 vim.opt.scrolloff = 10
 vim.opt.signcolumn = 'yes'
+vim.showmode = false
 
 vim.opt.linebreak = true
 vim.opt.breakindent = true
