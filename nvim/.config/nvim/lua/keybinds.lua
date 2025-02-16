@@ -2,7 +2,7 @@ local keymap = require("util").keymap
 
 -- Telescope
 local builtin = require("telescope.builtin")
-keymap("<C-p>", builtin.find_files, "Telescope find files")
+keymap("<leader>ff", builtin.find_files, "Telescope find files")
 keymap('<leader>fg', builtin.live_grep, "Telescope live grep")
 keymap('<leader>fb', builtin.buffers, 'Telescope buffers')
 keymap('<leader>fh', builtin.help_tags, 'Telescope help tags')

@@ -1,4 +1,5 @@
 return {
+{
 	"mfussenegger/nvim-dap",
 	dependencies = {
 		{ "stevearc/overseer.nvim", config = true }
@@ -51,6 +52,7 @@ return {
 			vim.fn.sign_define(group, { text = "●", texthl = group })
 		end
 
+		local dap = require("dap")
 		-- Setup
 
 		-- Decides when and how to jump when stopping at a breakpoint
@@ -61,10 +63,23 @@ return {
 		-- (3) Else, create a new tab with the buffer
 		--
 		-- This avoid unnecessary jumps
-		require("dap").defaults.fallback.switchbuf = "usevisible,usetab,newtab"
+		dap.defaults.fallback.switchbuf = "usevisible,usetab,newtab"
 
+		dap.configurations.cpp = {
+			{
+				name = "Launch file",
+				type = "codelldb",
+				request = "launch",
+				program = function()
+					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+				end,
+				cwd = '${workspaceFolder}',
+				stopOnEntry = false,
+			},
+		}
+		dap.configurations.c = dap.configurations.cpp
 
-		require("dap").adapters.codelldb = {
+		dap.adapters.codelldb = {
 			type = "server",
 			port = "${port}",
 			executable = {
@@ -73,4 +88,24 @@ return {
 			}
 		}
 	end
+},
+{
+	"rcarriga/nvim-dap-ui",
+	dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+	config = function()
+		local dap, dapui = require("dap"), require("dapui")
+		dapui.setup()
+
+		dap.listeners.after.event_initialized["dapui_config"] = function()
+			dapui.open()
+		end
+		dap.listeners.before.event_terminated["dapui_config"] = function()
+			dapui.close()
+		end
+		dap.listeners.before.event_exited["dapui_config"] = function()
+			dapui.close()
+		end
+	end
 }
+}
+
