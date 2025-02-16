@@ -7,4 +7,12 @@ function Util.keymap(lhs, rhs, opts, mode)
 	vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+function Util.neotreeToggle()
+	if vim.g.neotreeEnabled then
+		vim.cmd("Neotree show reveal filesystem left")
+	else
+		vim.cmd("Neotree close")
+	end
+end
+
 return Util

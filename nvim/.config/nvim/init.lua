@@ -24,3 +24,4 @@ require("lazy").setup({
 })
 
 require("keybinds")
+require("autocmds")

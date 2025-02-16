@@ -5,6 +5,6 @@ return {
 		require("lualine").setup({
 			disabled_filetypes = { 'packer', 'NvimTree', "neo-tree", 'lazy' }
 		})
-		vim.opt.laststatus = 3
+		--vim.opt.laststatus = 3
 	end
 }
