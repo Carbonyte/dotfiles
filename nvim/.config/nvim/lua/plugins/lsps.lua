@@ -1,3 +1,4 @@
+local map = require("util").keymap
 local res = {}
 
 local isVersion10 = vim.version.cmp(vim.version(), {0, 10}) >= 0
@@ -43,11 +44,6 @@ res[#res+1] = {
 				{ clear = true }
 			),
 			callback = function(event)
-				local function map(keys, func, desc, mode)
-					mode = mode or 'n'
-					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
-				end
-
 				-- Jump to the definition of the word under your cursor.
 				--	This is where a variable was first declared, or where a function is defined, etc.
 				--	To jump back, press <C-t>.
@@ -281,7 +277,7 @@ res[#res + 1] = {
 
 				-- If you prefer more traditional completion keymaps,
 				-- you can uncomment the following lines
-				['<CR>'] = cmp.mapping.confirm { select = true },
+				-- ['<CR>'] = cmp.mapping.confirm { select = true },
 				['<Tab>'] = cmp.mapping.select_next_item(),
 				['<S-Tab>'] = cmp.mapping.select_prev_item(),
 

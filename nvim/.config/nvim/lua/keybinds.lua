@@ -2,10 +2,10 @@ local keymap = require("util").keymap
 
 -- Telescope
 local builtin = require("telescope.builtin")
-keymap("<C-p>", builtin.find_files, {desc = "Telescope find files"})
-keymap('<leader>fg', builtin.live_grep, {desc = "Telescope live grep"})
-keymap('<leader>fb', builtin.buffers, {desc = 'Telescope buffers'})
-keymap('<leader>fh', builtin.help_tags, {desc = 'Telescope help tags'})
+keymap("<C-p>", builtin.find_files, "Telescope find files")
+keymap('<leader>fg', builtin.live_grep, "Telescope live grep")
+keymap('<leader>fb', builtin.buffers, 'Telescope buffers')
+keymap('<leader>fh', builtin.help_tags, 'Telescope help tags')
 
 -- Navigate windows
 keymap('<c-k>', ':wincmd k<CR>', { desc = "Up window" })
@@ -29,4 +29,3 @@ keymap("T-", "<CMD>tabm-<CR>", "Move tab to the left")
 keymap("T=", "<CMD>tabm+<CR>", "Move tab to the right")
 keymap("Tn", "<CMD>tabe<CR>", "Open new tab")
 keymap("Ts", "<CMD>tab split<CR>", "Clone window in new tab")
-
