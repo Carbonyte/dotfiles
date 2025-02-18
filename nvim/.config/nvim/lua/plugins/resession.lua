@@ -6,7 +6,7 @@ return {
 		resession.setup({
 			autosave = {
 				enabled = true,
-				interval = 60,
+				interval = 300,
 				notify = true
 			}
 		})
