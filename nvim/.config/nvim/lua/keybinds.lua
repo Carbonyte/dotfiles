@@ -92,9 +92,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		end
 	end
 })
---- TRANSFORM COMMANDS ---
-keymap('tu', 'gu', { desc = '[T]ransform lowercase', noremap = true }, {'n', 'v'})
-keymap('tU', 'gU', { desc = '[T]ransform uppercase', noremap = true }, {'n', 'v'})
-
-
 
