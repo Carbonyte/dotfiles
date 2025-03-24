@@ -32,7 +32,7 @@ keymap("Ts", ":tab split<CR>", "[T]ab [s]plit")
 keymap("Tq", ":tabclose<CR>", "[T]ab [q]uit")
 
 --- TOGGLES ---
-keymap("<leader>tt", ":lua vim.g.neotreeEnabled = not vim.g.neotreeEnabled; require('util').neotreeToggle()<CR>", "[T]oggle [T]ree")
+keymap("<leader>tt", function() vim.g.neotreeEnabled = not vim.g.neotreeEnabled; require('util').neotreeToggle() end, "[T]oggle [T]ree")
 
 --- LSP SHORTCUTS ---
 vim.api.nvim_create_autocmd('LspAttach', {
