@@ -23,7 +23,7 @@ curl -sS https://starship.rs/install.sh | sh -s -- -y
 stow starship
 
 # C/C++
-sudo apt-get install -y gcc clang
+sudo apt-get install -y gcc clang make cmake
 
 # Node, pnpm
 sudo apt-get install -y nodejs
