@@ -27,8 +27,8 @@ res[#res+1] = {
 	-- Main LSP Configuration
 	'neovim/nvim-lspconfig',
 	dependencies = {
-		{ 'williamboman/mason.nvim', opts = {} },
-		'williamboman/mason-lspconfig.nvim',
+		{ 'mason-org/mason.nvim', version = "^1.0.0", opts = {} },
+		{ 'williamboman/mason-lspconfig.nvim', version = "^1.0.0"},
 		'WhoIsSethDaniel/mason-tool-installer.nvim',
 
 		-- Useful status updates for LSP.
