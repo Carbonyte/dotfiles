@@ -1,11 +1,12 @@
-return {
+return {}
+--[[return {
 	'stevearc/resession.nvim',
 	opts = {},
 	config = function()
 		local resession = require("resession")
 		resession.setup({
 			autosave = {
-				enabled = true,
+				enabled = false,
 				interval = 300,
 				notify = true
 			}
@@ -41,4 +42,4 @@ return {
 			end,
 		})
 	end
-}
+}]]
