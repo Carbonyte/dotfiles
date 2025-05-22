@@ -9,7 +9,7 @@ sudo apt-get -y upgrade
 sudo apt-get install -y git wget curl vim stow zip unzip ca-certificates
 
 # Advanced utilities
-sudo apt-get install -y fzf apt-file bat ripgrep fd-find
+sudo apt-get install -y fzf apt-file bat ripgrep fd-find eza
 ln -s $(which batcat) ~/.local/bin/bat
 ln -s $(which fdfind) ~/.local/bin/fd
 
